@@ -1,7 +1,7 @@
 [build]
-  base = ""
-  command = "cd client && npm install && npm run build"
-  publish = "client/build"
+  base = "client"
+  command = "npm install && npm run build"
+  publish = "build"
 
 [[redirects]]
   from = "/*"
@@ -10,3 +10,9 @@
 
 [build.environment]
   NODE_VERSION = "18.16.0"
+
+[context.production.environment]
+  REACT_APP_API_URL = "your_production_api_url"
+
+[context.deploy-preview.environment]
+  REACT_APP_API_URL = "your_staging_api_url"
